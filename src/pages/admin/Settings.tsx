@@ -13,7 +13,7 @@ import {
 interface SettingsTab {
   id: string;
   name: string;
-  icon: React.ForwardRefExoticComponent<any>;
+  icon: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
 }
 
 const tabs: SettingsTab[] = [
@@ -60,7 +60,7 @@ const Settings = () => {
     newsletterSignup: true,
   });
 
-  const handleGeneralSettingsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setGeneralSettings(prev => ({ ...prev, [name]: value }));
   };
@@ -99,7 +99,7 @@ const Settings = () => {
                     type="text"
                     name="storeName"
                     value={generalSettings.storeName}
-                    onChange={handleGeneralSettingsChange}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-2 border rounded-lg focus:ring-primary focus:border-primary"
                   />
                 </div>
@@ -113,7 +113,7 @@ const Settings = () => {
                       type="email"
                       name="storeEmail"
                       value={generalSettings.storeEmail}
-                      onChange={handleGeneralSettingsChange}
+                      onChange={handleInputChange}
                       className="w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-primary focus:border-primary"
                     />
                   </div>
@@ -126,7 +126,7 @@ const Settings = () => {
                     type="tel"
                     name="phoneNumber"
                     value={generalSettings.phoneNumber}
-                    onChange={handleGeneralSettingsChange}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-2 border rounded-lg focus:ring-primary focus:border-primary"
                   />
                 </div>
@@ -138,7 +138,7 @@ const Settings = () => {
                     type="text"
                     name="address"
                     value={generalSettings.address}
-                    onChange={handleGeneralSettingsChange}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-2 border rounded-lg focus:ring-primary focus:border-primary"
                   />
                 </div>
@@ -158,7 +158,7 @@ const Settings = () => {
                       type="text"
                       name="currency"
                       value={generalSettings.currency}
-                      onChange={handleGeneralSettingsChange}
+                      onChange={handleInputChange}
                       className="w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-primary focus:border-primary"
                     />
                   </div>
@@ -173,7 +173,7 @@ const Settings = () => {
                       type="text"
                       name="timezone"
                       value={generalSettings.timezone}
-                      onChange={handleGeneralSettingsChange}
+                      onChange={handleInputChange}
                       className="w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-primary focus:border-primary"
                     />
                   </div>
@@ -186,7 +186,7 @@ const Settings = () => {
                     type="text"
                     name="orderPrefix"
                     value={generalSettings.orderPrefix}
-                    onChange={handleGeneralSettingsChange}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-2 border rounded-lg focus:ring-primary focus:border-primary"
                   />
                 </div>

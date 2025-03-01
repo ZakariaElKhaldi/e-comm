@@ -6,7 +6,6 @@ import {
   TrashIcon,
   ArrowUpTrayIcon,
   ArrowDownTrayIcon,
-  FunnelIcon,
   Squares2X2Icon,
   ListBulletIcon,
 } from '@heroicons/react/24/outline';
@@ -23,7 +22,6 @@ interface Product {
 
 const Products = () => {
   const navigate = useNavigate();
-  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');

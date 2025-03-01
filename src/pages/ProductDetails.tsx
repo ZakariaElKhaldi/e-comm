@@ -1,8 +1,6 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import {
   StarIcon,
-  ShareIcon,
   ViewfinderCircleIcon,
   ShoppingCartIcon,
   HeartIcon,
@@ -83,7 +81,6 @@ const relatedProducts = Array.from({ length: 4 }, (_, i) => ({
 }));
 
 const ProductDetails = () => {
-  const { id } = useParams();
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedSize, setSelectedSize] = useState<Size | ''>('');
   const [selectedColor, setSelectedColor] = useState<Color | ''>('');

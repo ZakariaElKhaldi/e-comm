@@ -76,9 +76,6 @@ const categories = [
   'Accessories',
 ];
 
-const availableSizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL'];
-const availableColors = ['Black', 'White', 'Red', 'Blue', 'Gray', 'Brown'];
-
 const tabs = [
   { id: 'basic', name: 'Basic Info' },
   { id: 'media', name: 'Media' },
@@ -198,24 +195,6 @@ const CreateEditProduct = () => {
     }
   };
 
-  const handleSizeToggle = (size: string) => {
-    setFormData(prev => ({
-      ...prev,
-      sizes: prev.sizes.includes(size)
-        ? prev.sizes.filter(s => s !== size)
-        : [...prev.sizes, size],
-    }));
-  };
-
-  const handleColorToggle = (color: string) => {
-    setFormData(prev => ({
-      ...prev,
-      colors: prev.colors.includes(color)
-        ? prev.colors.filter(c => c !== color)
-        : [...prev.colors, color],
-    }));
-  };
-
   const addFeature = () => {
     setFormData(prev => ({
       ...prev,
@@ -234,29 +213,6 @@ const CreateEditProduct = () => {
     setFormData(prev => ({
       ...prev,
       features: prev.features.filter((_, i) => i !== index),
-    }));
-  };
-
-  const addSpecification = () => {
-    setFormData(prev => ({
-      ...prev,
-      specifications: [...prev.specifications, { key: '', value: '' }],
-    }));
-  };
-
-  const updateSpecification = (index: number, field: 'key' | 'value', value: string) => {
-    setFormData(prev => ({
-      ...prev,
-      specifications: prev.specifications.map((spec, i) =>
-        i === index ? { ...spec, [field]: value } : spec
-      ),
-    }));
-  };
-
-  const removeSpecification = (index: number) => {
-    setFormData(prev => ({
-      ...prev,
-      specifications: prev.specifications.filter((_, i) => i !== index),
     }));
   };
 

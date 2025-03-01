@@ -1,39 +1,16 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState } from 'react';
 import { 
   Squares2X2Icon as ViewGridIcon,
   Bars4Icon as ViewListIcon,
   AdjustmentsHorizontalIcon,
   XMarkIcon,
   MagnifyingGlassIcon,
-  FunnelIcon,
-  ArrowPathIcon,
   ChevronLeftIcon,
-  ChevronRightIcon,
-  StarIcon
+  ChevronRightIcon
 } from '@heroicons/react/24/outline';
-import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid';
 import ProductCard from '../components/products/ProductCard';
 import ProductList from '../components/products/ProductList';
 import EmptyState from '../components/ui/EmptyState';
-import { Breadcrumb } from '../components/ui/Breadcrumb';
-
-// Types
-interface Product {
-  id: string;
-  name: string;
-  price: number;
-  image: string;
-  category: string;
-  brand: string;
-  rating: number;
-  reviews: number;
-  isNew: boolean;
-  isOnSale: boolean;
-  discount: number;
-  description?: string;
-  tags?: string[];
-  stock?: number;
-}
 
 // Mock products data
 const products = Array.from({ length: 12 }, (_, i) => ({
@@ -60,11 +37,11 @@ const Shop = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedRating, setSelectedRating] = useState(0);
   const [availability, setAvailability] = useState<'all' | 'in-stock' | 'sale'>('all');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [loading] = useState(false);
+  const [error] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(12);
-  const [totalPages, setTotalPages] = useState(1);
+  const [itemsPerPage] = useState(12);
+  const [totalPages] = useState(1);
 
   const filteredProducts = products
     .filter(product => {

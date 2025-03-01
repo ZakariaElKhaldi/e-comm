@@ -7,13 +7,12 @@ interface ProductListProps {
   name: string;
   price: number;
   image: string;
-  category: string;
   brand: string;
   rating: number;
   reviews: number;
-  isNew: boolean;
-  isOnSale: boolean;
-  discount: number;
+  isNew?: boolean;
+  isOnSale?: boolean;
+  discount?: number;
   description?: string;
   tags?: string[];
   stock?: number;
@@ -22,12 +21,11 @@ interface ProductListProps {
   onQuickView: () => void;
 }
 
-const ProductList = ({
+const ProductList: React.FC<ProductListProps> = ({
   id,
   name,
   price,
   image,
-  category,
   brand,
   rating,
   reviews,
@@ -115,7 +113,7 @@ const ProductList = ({
                 <span className="text-xl font-bold text-gray-900">
                   ${price.toFixed(2)}
                 </span>
-                {isOnSale && (
+                {isOnSale && discount !== undefined && (
                   <span className="text-sm text-gray-500 line-through">
                     ${(price / (1 - discount / 100)).toFixed(2)}
                   </span>

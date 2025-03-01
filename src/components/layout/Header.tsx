@@ -47,7 +47,6 @@ const Header = () => {
   const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchDropdownRef = useRef<HTMLDivElement>(null);
-  const categoryDropdownRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const location = useLocation();
 

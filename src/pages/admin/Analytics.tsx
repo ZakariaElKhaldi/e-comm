@@ -192,7 +192,7 @@ const Analytics = () => {
                   fill="#8884d8"
                   dataKey="value"
                 >
-                  {customerDemographics.map((entry, index) => (
+                  {customerDemographics.map((_, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>

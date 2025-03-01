@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   TrashIcon,
   HeartIcon,
-  ArrowPathIcon,
+
   ShoppingCartIcon,
   TagIcon,
   TruckIcon,

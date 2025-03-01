@@ -1,29 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { 
   TagIcon,
   FireIcon,
   ClockIcon
 } from '@heroicons/react/24/outline';
 
-interface Deal {
-  id: string;
-  name: string;
-  brand: string;
-  image: string;
-  originalPrice: number;
-  discountedPrice: number;
-  discountPercentage: number;
-  endDate: string;
-  category: string;
-  featured: boolean;
-  stock: number;
-}
-
 const Deals = () => {
   const [timeLeft, setTimeLeft] = useState<{ [key: string]: string }>({});
 
   // Mock deals data - in real app, this would come from an API
-  const deals: Deal[] = [
+  const deals = useMemo(() => [
     {
       id: 'helmet-deal-1',
       name: 'GT-Air II Helmet',
@@ -63,7 +49,7 @@ const Deals = () => {
       featured: false,
       stock: 12
     }
-  ];
+  ], []);
 
   useEffect(() => {
     const calculateTimeLeft = () => {
@@ -90,7 +76,7 @@ const Deals = () => {
     const timer = setInterval(calculateTimeLeft, 60000); // Update every minute
 
     return () => clearInterval(timer);
-  }, []);
+  }, [deals]);
 
   return (
     <div className="min-h-screen bg-gray-50 pt-24 pb-12">

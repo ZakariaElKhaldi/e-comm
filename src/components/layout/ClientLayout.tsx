@@ -1,17 +1,16 @@
 import { useState } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 
 const ClientLayout = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
-  const location = useLocation();
-
+  
   // Don't show the shopping sidebar on these routes
-  const hideShoppingSidebar = ['/cart', '/checkout', '/admin'].some(path => 
-    location.pathname.startsWith(path)
-  );
+  // const _hideShoppingSidebar = ['/cart', '/checkout', '/admin'].some(path => 
+  //   location.pathname.startsWith(path)
+  // );
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">

@@ -5,7 +5,6 @@ import {
   ShoppingBagIcon,
   HeartIcon,
   CogIcon,
-  ClipboardDocumentListIcon,
   MapPinIcon,
   CreditCardIcon,
   BellIcon,
